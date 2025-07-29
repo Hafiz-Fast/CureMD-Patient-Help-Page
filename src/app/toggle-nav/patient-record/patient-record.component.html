@@ -1,0 +1,251 @@
+<div class="record-section pt-3 ps-2 pe-2 pb-2">
+    <div class="patient-info">
+        <span class="material-icons up">keyboard_arrow_up</span>
+        <div class="main-details">
+            <div class="name">
+                <div>Charles, John (He/Him)</div>
+            </div>
+            <div class="contact">
+                <div>Contact . Provider</div>
+            </div>
+            <div class="balance">
+                <div>Overdue Balance: $50 <span>Pay Now</span></div>
+            </div>
+        </div>
+        <div class="labels">
+            <div class="label1">
+                <div>LEP</div>
+            </div>
+            <div class="label2">
+                <div>Cancer</div>
+            </div>
+            <div class="label3">
+                <img src="images/side-navbar/Receipt.svg">
+            </div>
+            <div class="label4">
+                <img src="images/side-navbar/Receipt.svg">
+            </div>
+        </div>
+        <div class="sub-details">
+            <div class="btn">
+                24/8/1978<br>
+                <span>Date of Birth</span>
+            </div>
+            <div class="btn">
+                Female<br>
+                <span>Gender</span>
+            </div>
+            <div class="btn">
+                33Y<br>
+                <span>Age</span>
+            </div>
+            <div class="btn">
+                123 423234<br>
+                <span>Acount No.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="patient-sub-info mt-1">
+        <h4 class="title">Case</h4>
+        <mat-form-field appearance="outline" class="field1">
+            <mat-label>Select</mat-label>
+            <mat-select>
+                @for (case of cases; track case) {
+                <mat-option [value]="case.value">{{case.viewValue}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <h4 class="title">Location</h4>
+                <mat-form-field appearance="outline" class="field1">
+                    <mat-label>Select</mat-label>
+                    <mat-select>
+                        @for (location of locations; track location) {
+                        <mat-option [value]="location.value">{{location.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-lg-3 col-6 ms-3">
+                <h4 class="title">Provider/Resources</h4>
+                <!-- Trigger Button -->
+                <button class="button-custom" [mdePopoverTriggerFor]="appPopover" mdePopoverTriggerOn="click" md-button
+                    mdePopoverPositionX="center" mdePopoverPositionY="below">
+                    Open Menu
+                </button>
+                <!-- Popover Content -->
+                <mde-popover #appPopover="mdePopover">
+                    <div class="dropdown-custom">
+                        <div class="titles">
+                            <span class="title active" (click)="ChangeTab($event)">Provider</span>
+                            <span class="title" (click)="ChangeTab($event)">Resource</span>
+                            <span class="material-icons search-icon-custom apear"
+                                (click)="ToggleMiniSearch($event)">search</span>
+                        </div>
+
+                        <div class="mt-1">
+                            <mat-form-field appearance="outline" class="search-bar-custom p-3">
+                                <mat-icon matPrefix class="material-icons ps-2" (click)="ToggleMiniSearch($event)"
+                                    style="cursor: pointer; padding-top: 10px;">keyboard_arrow_left</mat-icon>
+                                <input matInput placeholder="Search">
+                                <mat-icon style="padding-top: 10px;" matSuffix class="material-icons pe-2">search</mat-icon>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="list-area">
+                            <mat-selection-list>
+                                @for (item of variable; track item) {
+                                <mat-list-option [value]="item.value">{{ item.viewValue }}</mat-list-option>
+                                }
+                            </mat-selection-list>
+                        </div>
+                    </div>
+                </mde-popover>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <h4 class="title">Visit Reason</h4>
+                <mat-form-field appearance="outline" class="field1">
+                    <mat-label>Select</mat-label>
+                    <mat-select>
+                        @for (visit of visits; track visit) {
+                        <mat-option [value]="visit.value">{{visit.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-lg-3 col-6 ms-3">
+                <h4 class="title">Duration</h4>
+                <mat-form-field appearance="outline" class="field1">
+                    <mat-label>Select</mat-label>
+                    <mat-select>
+                        @for (duration of durations; track duration) {
+                        <mat-option [value]="duration.value">{{duration.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row comment-area">
+            <div class="title mt-3">
+                <div>Add Comment</div>
+            </div>
+            <div class="mt-3">
+                <mat-slide-toggle class="slider" [(ngModel)]="isChecked"><span
+                        class="ms-1 subtitle">Recurring</span></mat-slide-toggle>
+            </div>
+            @if(isChecked){
+            <div class="mt-3 recurring d-flex gap-3">
+                <div class="heading">
+                    <div>Repeat every</div>
+                </div>
+                <div class="number-of">
+                    <div>2</div>
+                </div>
+                <div class="type-box d-flex">
+                    <div>{{timeline[curr_index]}}</div>
+                    <span class="material-icons ms-auto" (click)="IncrementTimeline()">keyboard_arrow_down</span>
+                </div>
+            </div>
+            @if(timeline[curr_index] === 'Week'){
+            <div class="week-bar">
+                <div class="day">S</div>
+                <div class="day">M</div>
+                <div class="day">T</div>
+                <div class="day">W</div>
+                <div class="day">T</div>
+                <div class="day">F</div>
+                <div class="day">S</div>
+            </div>
+            }
+            @else if(timeline[curr_index] === 'Month'){
+            <div class="month-bar">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">
+                        <div class="d-flex gap-4 content">
+                            <span>On day</span>
+                            <div class="num-box">13</div>
+                        </div>
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button value="2">
+                        <div class="d-flex gap-4 content mt-2">
+                            <span>On the</span>
+                            <div class="type-box first d-flex">
+                                <div>First</div>
+                                <span class="material-icons ms-auto">keyboard_arrow_down</span>
+                            </div>
+                            <div class="type-box d-flex">
+                                <div>Monday</div>
+                                <span class="material-icons ms-auto">keyboard_arrow_down</span>
+                            </div>
+                        </div>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            }
+            <div class="calander-bars">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">
+                        <div class="content">
+                            <span>End by</span>
+                            <mat-form-field class="ms-5 calendar">
+                                <input matInput [matDatepicker]="dp" [formControl]="date">
+                                <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                                <mat-datepicker #dp></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </mat-radio-button>
+                    <br>
+                    <mat-radio-button value="2">
+                        <div class="content">
+                            <span>End after</span>
+                            <div class="num-box">1</div>
+                            <div class="visit ms-4">Visit</div>
+                        </div>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            @if(timeline[curr_index] === 'Week'){
+            <div class="mt-3" style="font-weight: 400;">
+                <p>Repeats every 2 weeks, ends by 27 Jan 2024 for 1 visit.</p>
+            </div>
+            }
+            @else if(timeline[curr_index] === 'Day'){
+            <div class="mt-3" style="font-weight: 400;">
+                <p>Repeats every 1 day, ends by 27 Jan 2024 for 1 visit.</p>
+            </div>
+            }
+            @else if(timeline[curr_index] === 'Month'){
+            <div class="mt-3" style="font-weight: 400;">
+                <p>Repeats every 1 month, ends by 27 Jan 2024 for 1 visit.</p>
+            </div>
+            }
+            }
+        </div>
+    </div>
+
+    <div class="Payment">
+        <div class="heading">
+            <div>Payment Preference</div>
+        </div>
+        <div class="payment-bar mt-2">
+            <div class="btn custom">
+                Insurance
+            </div>
+            <div class="btn custom">
+                Self Pay
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,147 @@
+<div class="flex-layout">
+
+    <div class="side-navbar custom">
+        <span>
+            <img src="images/side-navbar/Navigation.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Home.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Person.svg">
+        </span>
+        <span class="selected-svg">
+            <img src="images\side-navbar\Dropdown Base (1).svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Reading Mode Mobile.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Receipt.svg">
+        </span>
+        <span>
+            <img src="images/side-navbar/Navigation.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Document Bullet List Multiple.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Heart Circle Hint.svg">
+        </span>
+        <span>
+            <img src="images\side-navbar\Settings.svg">
+        </span>
+    </div>
+
+    <div class="shedular-section-main">
+        <div class="shedular-section">
+
+            <div class="title-section">
+                <div class="title">
+                    Schedular
+                </div>
+                <div class="icon">
+                    <img src="images/side-navbar/Settings.svg">
+                </div>
+            </div>
+
+            <div class="shedular-nav mt-2">
+                <div class="nav-bar">
+                    <div class="item first" [class.active]="activebutton.isActive" (click)="onToggle()">
+                        <span class="material-icons">add</span>
+                        <span>Book Appointment</span>
+                    </div>
+                    <div class="item">
+                        <span>Today</span>
+                    </div>
+                    <div class="item custom" (click)="openDatePicker()">
+                        <span class="material-icons"
+                            (click)="changeDate(-1); $event.stopPropagation()">keyboard_arrow_left</span>
+                        <span>{{ selectedDate | date: 'EEE, dd MMM yyyy' }}</span>
+                        <span class="material-icons"
+                            (click)="changeDate(1); $event.stopPropagation()">keyboard_arrow_right</span>
+
+                        <!-- Hidden datepicker trigger -->
+                        <input [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateChange($event)"
+                            #dateInput class="visually-hidden" />
+                        <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                    <div style="cursor: pointer;" [matMenuTriggerFor]="menu" class="item">
+                        <span>Location</span>
+                        <span class="material-icons">keyboard_arrow_down</span>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <mat-checkbox [(ngModel)]="redial">All</mat-checkbox>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-checkbox [(ngModel)]="voicemail">Aurora Highands Clinic</mat-checkbox>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-checkbox [(ngModel)]="alerts">Blue Dome District Clinic</mat-checkbox>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-checkbox [(ngModel)]="second">Brooklyn Clinic</mat-checkbox>
+                            </button>
+                            <button mat-menu-item>
+                                <mat-checkbox [(ngModel)]="third">Buckhead Clinic</mat-checkbox>
+                            </button>
+                        </mat-menu>
+                    </div>
+                    <div style="cursor: pointer;" class="item">
+                        <span [mdePopoverTriggerFor]="appPopover" mdePopoverTriggerOn="click" md-button
+                            mdePopoverPositionX="center" mdePopoverPositionY="below">Provider / Resource</span>
+                        <span class="material-icons">keyboard_arrow_down</span>
+                        <!-- Popover Content -->
+                        <mde-popover #appPopover="mdePopover">
+                            <div class="dropdown-custom">
+                                <div class="titles">
+                                    <span class="title active" (click)="ChangeTab($event)">Provider</span>
+                                    <span class="title" (click)="ChangeTab($event)">Resource</span>
+                                    <span class="material-icons search-icon-custom apear"
+                                        (click)="ToggleMiniSearch($event)">search</span>
+                                </div>
+
+                                <div class="mt-1">
+                                    <mat-form-field appearance="outline" class="search-bar-custom p-3">
+                                        <mat-icon matPrefix class="material-icons ps-2"
+                                            (click)="ToggleMiniSearch($event)"
+                                            style="cursor: pointer; padding-top: 10px;">keyboard_arrow_left</mat-icon>
+                                        <input matInput placeholder="Search">
+                                        <mat-icon style="padding-top: 10px;" matSuffix
+                                            class="material-icons pe-2">search</mat-icon>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="list-area">
+                                    <mat-selection-list>
+                                        @for (item of variable; track item) {
+                                        <mat-list-option [value]="item.value">{{ item.viewValue }}</mat-list-option>
+                                        }
+                                    </mat-selection-list>
+                                </div>
+                            </div>
+                        </mde-popover>
+                    </div>
+                    <div style="cursor: pointer;" class="item" [matMenuTriggerFor]="menu2">
+                        <span>Weekly View</span>
+                        <span class="material-icons">keyboard_arrow_down</span>
+                        <mat-menu #menu2="matMenu">
+                            <button mat-menu-item [matMenuTriggerFor]="daily">Daily</button>
+                            <button mat-menu-item>Weekly</button>
+                        </mat-menu>
+
+                        <mat-menu #daily="matMenu">
+                            <button mat-menu-item>2 days</button>
+                            <button mat-menu-item>3 days</button>
+                            <button mat-menu-item>4 days</button>
+                            <button mat-menu-item>5 days</button>
+                            <button mat-menu-item>6 days</button>
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

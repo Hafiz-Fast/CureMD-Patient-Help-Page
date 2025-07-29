@@ -1,0 +1,32 @@
+.navbar.custom {
+    background-color: #0F6CBD;
+    color: white;
+
+    .nav-link.dropdown-toggle{
+        padding: 0;
+    }
+
+    .nav-link.dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .search-bar{
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        width: 260px;
+        height: 35px;
+        padding: 0px 10px;
+        border: 1px solid #FFFFFF00;
+        border-radius: 4px;
+        background-color: #cfe2f2;
+        font-size: 14px;
+        color: #707070;
+        font-weight: 400;
+    }
+
+    .search-icon{
+        position: relative;
+        right: 35px;
+    }
+}

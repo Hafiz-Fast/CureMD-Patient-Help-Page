@@ -1,0 +1,49 @@
+.toggle-body {
+    margin: 10px;
+    padding: 0px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #F0F0F0;
+    border-radius: 3px;
+
+    input {
+        width: 100%;
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 15px;
+        border: transparent;
+    }
+
+    input:focus {
+        border: transparent;
+        outline: none;
+    }
+}
+
+.Patient-bar {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #F0F0F0;
+    border-radius: 3px;
+    font-size: 15px;
+
+    .Main-heading {
+        color: gray;
+        font-weight: 500;
+    }
+
+    .Patient{
+        margin-left: 40px;
+        cursor: pointer;
+    }
+
+    .name {
+        font-weight: 500;
+    }
+
+    .info {
+        font-size: 12px;
+        font-weight: 400;
+    }
+}

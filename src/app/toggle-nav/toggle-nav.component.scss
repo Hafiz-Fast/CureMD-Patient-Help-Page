@@ -1,0 +1,18 @@
+.title-bar {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    background-color: #0F6CBD;
+    height: 57px;
+    padding: 10px;
+
+    .material-icons.close{
+        color: rgb(173, 167, 167);
+    }
+
+    .material-icons.custom{
+        cursor: pointer;
+    }
+}

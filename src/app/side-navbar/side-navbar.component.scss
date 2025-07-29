@@ -1,0 +1,99 @@
+.flex-layout {
+    display: flex;
+
+    .side-navbar.custom {
+        width: 40px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 8px;
+        background-color: #F0F0F0;
+
+        .selected-svg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .shedular-section-main {
+        background-color: #fafafa;
+        width: 100%;
+    }
+
+}
+
+.shedular-section {
+    padding: 12px;
+    box-sizing: border-box;
+
+    .title-section {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+}
+
+.shedular-nav {
+    padding: 15px;
+
+    .nav-bar {
+        background-color: white;
+        border-radius: 3px;
+        border: 1px solid #F0F0F0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 10px;
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px 8px;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #616161;
+        }
+
+        .item.custom {
+            cursor: pointer;
+            .visually-hidden {
+               position: absolute;
+               left: 300px;
+               top: 180px;
+            }
+        }
+
+        .item.first {
+            border: 1px solid #F0F0F0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .item.first:hover {
+            color: white;
+            background-color: #0F6CBD;
+        }
+
+        .item.first.active {
+            color: white;
+            background-color: #0F6CBD;
+        }
+    }
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
