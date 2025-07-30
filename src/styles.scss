@@ -30,17 +30,13 @@ $frontend-theme: mat.define-theme((color: (theme-type: light,
   top: -161% !important;
 }
 
-.mat-datepicker-toggle-default-icon {
-  margin-top: 10px !important;
-}
-
 input.mat-mdc-input-element.mat-datepicker-input {
   position: relative;
   bottom: 6px;
 }
 
 input.mat-mdc-input-element.mat-mdc-form-field-input-control.mdc-text-field__input.cdk-text-field-autofill-monitored {
-  bottom: 10px;
+  bottom: 11px;
   font-size: 15px;
   font-weight: 400;
   position: relative;
@@ -215,6 +211,23 @@ mat-form-field mat-label {
 
 .mat-mdc-select-panel {
   background-color: white !important;
+}
+
+.calander-bars {
+  .mdc-text-field {
+    background-color: white !important;
+    border: 1px solid #E0E0E0;
+    width: 170px;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
+    /* Hides the underline */
+  }
+
+  .mat-mdc-icon-button {
+    margin-top: 14px;
+  }
 }
 
 // Include theme styles for core and each component used in your app.
