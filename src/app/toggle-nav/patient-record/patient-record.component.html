@@ -57,8 +57,8 @@
             </mat-select>
         </mat-form-field>
 
-        <div class="row">
-            <div class="col-lg-3 col-6">
+        <div class="row mt-2">
+            <div class="col-auto">
                 <h4 class="title">Location</h4>
                 <mat-form-field appearance="outline" class="field1">
                     <mat-label>Select</mat-label>
@@ -70,7 +70,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="col-lg-3 col-6 ms-3">
+            <div class="col-auto">
                 <h4 class="title">Provider/Resources</h4>
                 <!-- Trigger Button -->
                 <button class="button-custom" [mdePopoverTriggerFor]="appPopover" mdePopoverTriggerOn="click" md-button
@@ -82,12 +82,12 @@
                     <div class="dropdown-custom">
                         <div class="titles">
                             <span class="title active" (click)="ChangeTab($event)">Provider</span>
-                            <span class="title" (click)="ChangeTab($event)">Resource</span>
+                            <span class="title second" (click)="ChangeTab($event)">Resource</span>
                             <span class="material-icons search-icon-custom apear"
                                 (click)="ToggleMiniSearch($event)">search</span>
                         </div>
 
-                        <div class="mt-1">
+                        <div class="mt-1 second-popover">
                             <mat-form-field appearance="outline" class="search-bar-custom p-3">
                                 <mat-icon matPrefix class="material-icons ps-2" (click)="ToggleMiniSearch($event)"
                                     style="cursor: pointer; padding-top: 10px;">keyboard_arrow_left</mat-icon>
@@ -109,8 +109,8 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-lg-3 col-6">
+        <div class="row mt-2">
+            <div class="col-auto">
                 <h4 class="title">Visit Reason</h4>
                 <mat-form-field appearance="outline" class="field1">
                     <mat-label>Select</mat-label>
@@ -122,7 +122,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="col-lg-3 col-6 ms-3">
+            <div class="col-auto">
                 <h4 class="title">Duration</h4>
                 <mat-form-field appearance="outline" class="field1">
                     <mat-label>Select</mat-label>

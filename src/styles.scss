@@ -22,15 +22,15 @@ $frontend-theme: mat.define-theme((color: (theme-type: light,
   }
 }
 
-.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
-   top: 15px !important;
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 15px !important;
 }
 
-.mat-mdc-select-arrow svg{
+.mat-mdc-select-arrow svg {
   top: -161% !important;
 }
 
-.mat-datepicker-toggle-default-icon{
+.mat-datepicker-toggle-default-icon {
   margin-top: 10px !important;
 }
 
@@ -41,7 +41,180 @@ input.mat-mdc-input-element.mat-datepicker-input {
 
 input.mat-mdc-input-element.mat-mdc-form-field-input-control.mdc-text-field__input.cdk-text-field-autofill-monitored {
   bottom: 10px;
+  font-size: 15px;
+  font-weight: 400;
   position: relative;
+}
+
+.custom-menuloc {
+  .mat-mdc-menu-content {
+    padding: 0px !important;
+    background-color: white !important;
+
+    button {
+      margin-bottom: -5px;
+    }
+
+    button:last-child {
+      margin-bottom: 0px;
+    }
+
+    button.mat-mdc-focus-indicator:hover {
+      background-color: white;
+    }
+
+    .mat-mdc-menu-item {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+
+      .mat-mdc-menu-item-text {
+        background-color: white;
+
+        .mdc-checkbox__background {
+          .mdc-checkbox__checkmark {
+            background-color: #f5f5f5;
+            color: #0f6cbd;
+            border-color: #0f6cbd;
+            padding: 2px;
+          }
+        }
+      }
+
+      .mat-mdc-menu-item-text:hover {
+        background-color: #f5f5f5;
+        border-radius: 3px;
+
+        .mdc-label {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.custom-weekloc,
+.custom-dailyloc {
+  .mat-mdc-menu-content {
+    padding: 5px !important;
+    background-color: white !important;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    button {
+      min-height: 20px;
+      padding: 8px;
+      border-radius: 3px;
+
+    }
+
+    button.mat-mdc-menu-trigger {
+      padding-right: 5px;
+    }
+
+    button.mat-mdc-focus-indicator:hover {
+      background-color: #f6f6f6;
+    }
+
+  }
+}
+
+.dropdown-custom {
+  .second-popover {
+    .mat-mdc-form-field.search-bar-custom.p-3 {
+      padding: 0px !important;
+    }
+  }
+}
+
+.mde-popover-content {
+  padding: 5px !important;
+  margin-left: 150px;
+
+  .dropdown-custom {
+    width: 300px !important;
+
+    .mdc-notched-outline {
+      border-color: aqua !important;
+    }
+
+    .mat-mdc-form-field-icon-prefix {
+      .mat-icon {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 10px;
+      }
+    }
+
+    .mat-mdc-form-field .search-bar-custom .p-3 {
+      padding: 0px !important;
+      padding-left: 12px !important;
+    }
+
+    .mat-mdc-text-field-wrapper {
+      margin-left: 9px;
+      width: 277px;
+      height: 31px px;
+    }
+
+    .mdc-checkbox__checkmark {
+      background-color: #f5f5f5;
+      color: #0f6cbd;
+      border-color: #0f6cbd;
+      padding: 2px;
+    }
+
+    .titles {
+      padding: 11px 13px !important;
+      font-size: 15px;
+
+      .title.second {
+        margin-right: 70px !important;
+      }
+    }
+
+    .mat-mdc-selection-list {
+      padding: 0px !important;
+    }
+
+    .mdc-list-item--with-trailing-checkbox.mat-mdc-list-item {
+      padding-left: 3px !important;
+      max-height: 35px;
+
+      .mdc-list-item__content {
+
+        .mat-mdc-list-item-unscoped-content {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.mat-mdc-form-field.field1 {
+  width: 170px;
+  height: 32px;
+}
+
+/* Remove notch outline pieces */
+.mat-mdc-form-field.field1 .mdc-notched-outline__notch,
+.mat-mdc-form-field.field1 .mdc-notched-outline__leading,
+.mat-mdc-form-field.field1 .mdc-notched-outline__trailing {
+  border: none !important;
+}
+
+/* Add your own custom border */
+.mat-mdc-form-field.field1 .mdc-notched-outline {
+  border: 1px solid #E0E0E0 !important;
+  border-radius: 4px;
+}
+
+mat-form-field mat-label {
+  color: #707070;
+}
+
+.mat-mdc-select-panel {
+  background-color: white !important;
 }
 
 // Include theme styles for core and each component used in your app.

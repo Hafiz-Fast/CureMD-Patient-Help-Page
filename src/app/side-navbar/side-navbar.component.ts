@@ -10,16 +10,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { EventEmitter, Output } from '@angular/core';
 import { ActiveButtonService } from '../services/active-button.service';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core'; // or MatMomentDateModule
 
-import {MatMenuModule} from '@angular/material/menu';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { MdePopoverModule } from '@muntazir86/material-extended';
+import { MdePopoverModule, MdePopoverTrigger } from '@muntazir86/material-extended';
 
 interface Case {
   value: string;
@@ -30,7 +31,7 @@ interface Case {
   selector: 'app-side-navbar',
   standalone: true,
   imports: [MatTabsModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatDatepicker, CommonModule,
-            MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatMenuModule, MatCheckboxModule, FormsModule, MdePopoverModule
+    MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatMenuModule, MatCheckboxModule, FormsModule, MdePopoverModule
   ],
   templateUrl: './side-navbar.component.html',
   styleUrls: [
@@ -45,6 +46,39 @@ export class SideNavbarComponent {
   alerts = false;
   second = false;
   third = false;
+  isOpened = false;
+  isOpened2 = false;
+  isOpened3 = false;
+
+  @ViewChild('mainTrigger', { read: MatMenuTrigger }) menuTrigger!: MatMenuTrigger;
+  @ViewChild('weekRef', { read: MatMenuTrigger }) weekTrigger!: MatMenuTrigger;
+  @ViewChild(MdePopoverTrigger) popTrigger!: MdePopoverTrigger;
+
+  ngAfterViewInit() {
+    this.menuTrigger.menuOpened.subscribe(() => {
+      this.isOpened = true;
+    });
+
+    this.popTrigger.popoverOpened.subscribe(() => {
+      this.isOpened2 = true;
+    });
+
+    this.weekTrigger.menuOpened.subscribe(() => {
+      this.isOpened3 = true;
+    })
+
+    this.menuTrigger.menuClosed.subscribe(() => {
+      this.isOpened = false;
+    });
+
+    this.popTrigger.popoverClosed.subscribe(() => {
+      this.isOpened2 = false;
+    })
+
+    this.weekTrigger.menuClosed.subscribe(() => {
+      this.isOpened3 = false;
+    })
+  }
 
   @ViewChild('picker') picker!: MatDatepicker<Date>;
 
@@ -63,7 +97,7 @@ export class SideNavbarComponent {
   }
 
 
-  constructor(public activebutton: ActiveButtonService){
+  constructor(public activebutton: ActiveButtonService) {
 
   }
 
@@ -74,9 +108,11 @@ export class SideNavbarComponent {
     this.activebutton.isActive = !this.activebutton.isActive;
   }
 
-   providers: Case[] = [
+  providers: Case[] = [
     { value: 'Anthony, John MD', viewValue: 'Anthony, John MD' },
     { value: 'Tim, John MD', viewValue: 'Tim, John MD' },
+    { value: 'Tom, John MD', viewValue: 'Tom, John MD' },
+    { value: 'Jim, John MD', viewValue: 'Jim, John MD' },
     { value: 'Johny, John MD', viewValue: 'Johny, John MD' }
   ]
 
