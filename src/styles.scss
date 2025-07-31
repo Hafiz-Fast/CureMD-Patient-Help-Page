@@ -228,7 +228,78 @@ mat-form-field mat-label {
   .mat-mdc-icon-button {
     margin-top: 14px;
   }
+
+  /* Shrink the entire slide toggle */
+  mat-slide-toggle.slider {
+    transform: scale(0.85);
+    /* Reduce size */
+    transform-origin: left;
+    font-size: 0.85rem;
+  }
+
 }
+
+.custom-datepicker-panel {
+  position: absolute;
+  left: 5px;
+  top: -30px;
+}
+
+.mat-calendar {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow:
+    0px 0px 2px rgba(0, 0, 0, 0.12),
+    0px 8px 16px rgba(0, 0, 0, 0.14);
+
+  .mat-calendar-header {
+    padding-left: 0px !important;
+    padding-right: 10px !important;
+  }
+
+  .mat-calendar-previous-button,
+  .mat-calendar-next-button {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0px !important;
+
+    .mat-mdc-button-ripple,
+    .mat-ripple-element {
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 50% !important;
+    }
+  }
+
+  .mat-calendar-controls {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f8f4f4;
+
+    .mdc-button__label {
+      font-size: 16px;
+
+      svg {
+        display: none;
+      }
+    }
+  }
+}
+
+.main-page-content {
+
+  .mat-mdc-tab-label-container {
+    flex-grow: 0 !important;
+
+    .mdc-tab__text-label{
+      font-weight: 400;
+      color: #616161;
+    }
+  }
+}
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

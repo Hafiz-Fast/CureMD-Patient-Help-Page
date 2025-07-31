@@ -1,0 +1,131 @@
+.main-page-content {
+    background-color: white;
+    margin: 10px 0px;
+    border: 1px solid #F0F0F0;
+    border-radius: 1px;
+    max-height: 52px;
+
+    .main-inner {
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+
+        .days-bar {
+            padding: 8px 0;
+            max-width: 1845px;
+            overflow-x: hidden !important;
+            overflow-y: hidden !important;
+        }
+
+        .arrow-col.right {
+            .material-icons {
+                background-color: #f8f4f4;
+                width: 46px;
+                height: 46px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding-right: 5px;
+            }
+        }
+
+        .arrow-col.left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 100px;
+            background-color: white;
+            width: 47px;
+
+            .material-icons {
+                background-color: #f8f4f4;
+                width: 46px;
+                height: 46px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding-left: 11px;
+            }
+
+            .time {
+                display: flex;
+                flex-direction: column;
+                font-size: 18px;
+                line-height: 28px;
+                color: #121D22;
+                font-weight: 400;
+                padding-left: 11px;
+
+                span {
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 18px;
+                    color: #9D9CA3;
+                }
+            }
+        }
+
+        .day-wrapper {
+            gap: 4px;
+
+            .day {
+                padding: 4px 0;
+                font-weight: 500;
+                white-space: nowrap;
+                max-width: 250px;
+
+                .title{
+                    font-weight: 500;
+                    color: #707070;
+                    font-size: 14px;
+                    line-height: 20px;
+                    background-color: white;
+                    border: 1px solid #E0E0E0;
+                }
+
+                .slot-bar{
+                    background-color: white;
+                    border: 1px solid #F5F5F5;
+                    border-radius: 1px;
+                    
+                    .slot-text{
+                        background-color: #f8f4f4;
+                        border-left: 5px solid #C8D1FA;
+                        color: #605E5C;
+                        border-radius: 2px;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 16px;
+                    }
+
+                    .slot-text.two{
+                        background-color: white;
+                        border-color: #FFF4CE;
+                    }
+
+                    .slot-text.three{
+                        background-color: #ebf3fc;
+                        border-color: #9FD89F;
+                    }
+
+                    .slot-text.open{
+                        background-color: white;
+                        border-color: #F7630C;
+                    }
+
+                    .slot-text.green{
+                        background-color: #F1FAF1;
+                        border-color: #FFF4CE;
+                    }
+
+                    .slot-text.block{
+                        border: 0px
+                    }
+                }
+            }
+        }
+    }
+}

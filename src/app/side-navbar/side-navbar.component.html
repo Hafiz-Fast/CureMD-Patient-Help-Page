@@ -64,7 +64,7 @@
                         <!-- Hidden datepicker trigger -->
                         <input [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateChange($event)"
                             #dateInput class="visually-hidden" />
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-datepicker #picker [panelClass]="'custom-datepicker-panel'"></mat-datepicker>
                     </div>
                     <div #mainTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" class="item" style="cursor: pointer;">
                         <span>Location</span>
@@ -146,6 +146,8 @@
                     </div>
                 </div>
             </div>
+
+            <app-main-content></app-main-content>
 
         </div>
     </div>

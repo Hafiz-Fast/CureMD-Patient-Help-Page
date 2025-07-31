@@ -22,6 +22,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MdePopoverModule, MdePopoverTrigger } from '@muntazir86/material-extended';
 
+import { MainContentComponent } from '../main-content/main-content.component';
+
 interface Case {
   value: string;
   viewValue: string;
@@ -31,7 +33,8 @@ interface Case {
   selector: 'app-side-navbar',
   standalone: true,
   imports: [MatTabsModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatButtonModule, MatDatepicker, CommonModule,
-    MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatMenuModule, MatCheckboxModule, FormsModule, MdePopoverModule
+    MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatMenuModule, MatCheckboxModule, FormsModule, MdePopoverModule,
+    MainContentComponent
   ],
   templateUrl: './side-navbar.component.html',
   styleUrls: [
